@@ -14,8 +14,8 @@ export default async function Page({ searchParams }: Props) {
   const checkoutSession =await stripe.checkout.sessions.retrieve(session_id)
  const customer_details= checkoutSession.customer_details */
   return (
-    <main className="flex flex-col min-h-full place-items-center px-6 py-24 sm:py-32 lg:px-8 ">
-      <div className="text-center flex flex-col">
+    <main className="flex min-h-full flex-col place-items-center px-6 py-24 sm:py-32 lg:px-8 ">
+      <div className="flex flex-col text-center">
         {/* Checkout session */}
        {/*  <CheckoutSession customerDetails={customer_details} /> */}
         <div className="mt-10 flex items-center justify-center gap-x-6">

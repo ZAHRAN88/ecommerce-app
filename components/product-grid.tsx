@@ -7,7 +7,6 @@ import { XCircle } from "lucide-react"
 import { formatCurrencyString } from "use-shopping-cart"
 
 import { SanityProduct } from "@/config/inventory"
-import { shimmer, toBase64 } from "@/lib/image"
 
 interface Props {
   products: SanityProduct[]
@@ -33,21 +32,20 @@ export function ProductGrid({ products }: Props) {
         <Link
           key={product._id}
           href={`/products/${product.slug}`}
-          className="group text-sm relative h-80"
+          className="group relative h-80 text-sm"
         >
-          <div className="overflow-hidden rounded-lg border border-gray-200 bg-white shadow-md transition-transform duration-300 transform hover:shadow-lg">
+          <div className="overflow-hidden rounded-lg border border-gray-200 bg-white shadow-md transition-transform duration-300 hover:shadow-lg">
             <div className="aspect-h-1 aspect-w-1">
               <Image
-                
                 src={urlForImage(product.images[0]).url()}
                 alt={product.name}
-                /*  width={auto}
-            height={180} */
-                className="object-cover w-full  h-64"
+                  width={250}
+                height={180} 
+                className="h-64 w-full  object-cover"
               />
             </div>
             <div className="p-4">
-              <h3 className="text-lg font-bold text-gray-900 truncate">
+              <h3 className="truncate text-lg font-bold text-gray-900">
                 {product.name}
               </h3>
               <p className="mt-1 text-base font-semibold text-gray-700">{`Price: ${formatCurrencyString(
@@ -55,12 +53,12 @@ export function ProductGrid({ products }: Props) {
               )}`}</p>
             </div>
             {product.isNewArrival && (
-              <div className="absolute top-2 left-0 bg-blue-600 text-white px-2 py-1 rounded-e text-xs font-semibold">
+              <div className="absolute left-0 top-2 rounded-e bg-blue-600 px-2 py-1 text-xs font-semibold text-white">
                 New Arrival
               </div>
             )}
             {product.isBestSeller && (
-              <div className="absolute top-2 left-0 bg-orange-600 text-white px-2 py-1 rounded-e text-xs font-semibold">
+              <div className="absolute left-0 top-2 rounded-e bg-orange-600 px-2 py-1 text-xs font-semibold text-white">
                 Best Seller
               </div>
             )}

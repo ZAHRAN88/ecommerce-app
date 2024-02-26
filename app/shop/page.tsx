@@ -1,14 +1,12 @@
-import { log } from "console"
+
 import { client } from "@/sanity/lib/client"
 import { groq } from "next-sanity"
 
 import { SanityProduct } from "@/config/inventory"
-import { siteConfig } from "@/config/site"
-import { seedSanityData } from "@/lib/seed"
+
 import { cn } from "@/lib/utils"
 import { ProductFilters } from "@/components/product-filters"
 import { ProductGrid } from "@/components/product-grid"
-import { ProductSmall } from "@/components/product-sm"
 import { ProductSort } from "@/components/product-sort"
 
 interface Props {
@@ -66,9 +64,9 @@ products = products.filter(product => {
   return (
     <div>
       <hr />
-      <div className=" pt-20 pb-16 flex items-center justify-between border-b border-gray-200 pb-4 pt-24 dark:border-gray-800 text-center">
-        <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-2xl font-bold mb-4">Shop </h2>
+      <div className="flex items-center justify-between border-b border-gray-200 text-center dark:border-gray-800">
+        <div className="mx-auto max-w-6xl px-6">
+          <h2 className="mb-4 text-2xl font-bold">Shop </h2>
           <p className="text-lg text-gray-700">
             All Products Are Available Here
           </p>

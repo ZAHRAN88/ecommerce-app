@@ -12,7 +12,6 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import Slider from 'react-slick';
 
-import Carousel from 'react-responsive-carousel';
 
 import "react-responsive-carousel/lib/styles/carousel.min.css"
 
@@ -70,7 +69,7 @@ export function ProductSmall({ products }: Props) {
     {products.map((product) => (
       
       <Link key={product._id} href={`/products/${product.slug}`} className="group h-80 ">
-        <div className="relative overflow-hidden h-80 rounded-lg mx-2 border border-gray-200 bg-white  pb-16  dark:bg-slate-900 dark:border-slate-900 dark:text-white  shadow-md transition-transform duration-300 transform hover:translate-y-1">
+        <div className="relative mx-2 h-80 overflow-hidden rounded-lg border border-gray-200 bg-white  pb-16  shadow-md transition-transform duration-300  hover:translate-y-1 dark:border-slate-900 dark:bg-slate-900 dark:text-white">
           <Image
             placeholder="blur"
             blurDataURL={`data:image/svg+xml;base64,${toBase64(shimmer(300, 300))}`}
@@ -78,10 +77,10 @@ export function ProductSmall({ products }: Props) {
             alt={product.name}
             width={250}
             height={250}
-            className="w-full h-48 object-cover transition-transform duration-300 transform "
+            className="h-48 w-full object-cover transition-transform duration-300"
           />
           <div className="p-4">
-            <h3 className="text-lg font-bold text-gray-900  dark:text-white truncate">{product.name}</h3>
+            <h3 className="truncate text-lg font-bold  text-gray-900 dark:text-white">{product.name}</h3>
             <p className="mt-4 text-base font-semibold text-gray-700">{`Price: ${formatCurrencyString({ currency: product.currency, value: product.price })}`}</p>
 
           </div>

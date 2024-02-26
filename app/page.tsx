@@ -1,27 +1,9 @@
 import { log } from "console"
-import Image from "next/image"
 import { client } from "@/sanity/lib/client"
-import { urlForImage } from "@/sanity/lib/image"
-import {
-  MDBContainer,
-  MDBIcon,
-  MDBNavbar,
-  MDBNavbarItem,
-  MDBNavbarLink,
-  MDBNavbarNav,
-  MDBNavbarToggler,
-} from "mdb-react-ui-kit"
 import { groq } from "next-sanity"
 
 import { SanityProduct } from "@/config/inventory"
-import { siteConfig } from "@/config/site"
-import { seedSanityData } from "@/lib/seed"
-import { cn } from "@/lib/utils"
-import { ProductFilters } from "@/components/product-filters"
-import { ProductGrid } from "@/components/product-grid"
 import { ProductSmall } from "@/components/product-sm"
-import { ProductSort } from "@/components/product-sort"
-import { relative } from "path"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { ShoppingCart } from "lucide-react"
@@ -40,7 +22,7 @@ function BgImageWithNavbar() {
   return (
     <header style={{ paddingLeft: 0,  position: "relative"}}
     
-    className="bg-cover bg-center bg-no-repeat h-96 relative flex items-center justify-center "
+    className="relative flex h-96 items-center justify-center bg-cover bg-center bg-no-repeat "
     >
       
         
@@ -125,7 +107,7 @@ export default async function Page({ searchParams }: Props) {
   ); */
   function Banner() {
     return (
-      <div className="relative py-8 mb-10">
+      <div className="relative mb-10 py-8">
         {/* <img
           src="https://i.postimg.cc/rFwwFs01/shopping-banner.jpg" // Use the first product's image
           alt="Banner Image"
@@ -135,7 +117,7 @@ export default async function Page({ searchParams }: Props) {
           /> */}
 
         {/* Optional: overlay text or a call-to-action on the banner */}
-        <div className="absolute inset-0 banner flex flex-col items-center justify-center text-center "></div>
+        <div className="banner absolute inset-0 flex flex-col items-center justify-center text-center "></div>
         {/*  <div className="banner-text absolute flex flex-col items-center justify-center text-center">
         <h2 className="text-3xl font-bold">Welcome to Our Store!</h2>
           <p>Find the best deals on our amazing products.</p>
@@ -165,14 +147,14 @@ export default async function Page({ searchParams }: Props) {
             aria-labelledby="products-heading"
             className="pb-24 pt-6"
           ></section>
-          <div className="pt-20 pb-20">
-            <h2 className="text-2xl font-bold mb-4">New Arrivals</h2>
+          <div className="py-20">
+            <h2 className="mb-4 text-2xl font-bold">New Arrivals</h2>
             <ProductSmall products={newArrivals} />
           </div>
 
           {/* Best Sellers Section */}
-          <div className="pt-20 pb-20">
-            <h2 className="text-2xl font-bold mb-4">Best Sellers</h2>
+          <div className="py-20">
+            <h2 className="mb-4 text-2xl font-bold">Best Sellers</h2>
             <ProductSmall products={bestSellers} />
           </div>
         </main>
