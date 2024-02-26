@@ -82,7 +82,12 @@
     font-feature-settings: "rlig" 1, "calt" 1;
   }
 }
+header.scrolled {
 
+ opacity: 0.97;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); 
+}
 .banner-container {
   @apply bg-background text-foreground;
   position: relative;
