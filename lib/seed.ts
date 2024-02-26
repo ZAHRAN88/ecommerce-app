@@ -1,4 +1,4 @@
-import { client } from "@/sanity/lib/client"
+/* import { client } from "@/sanity/lib/client"
 
 import { inventory } from "@/config/inventory"
 
@@ -56,3 +56,4 @@ function slugify(text: string) {
     .replace(/ /g, "-")
     .replace(/[^\w-]+/g, "")
 }
+ */
