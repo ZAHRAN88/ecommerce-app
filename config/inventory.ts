@@ -14,7 +14,7 @@ interface InventoryProduct {
   sku: string
   isBestSeller: boolean
   isNewArrival: boolean
-  
+}
 
 export interface SanityProduct extends Omit<InventoryProduct, "images"> {
   _id: string
@@ -25,6 +25,7 @@ export interface SanityProduct extends Omit<InventoryProduct, "images"> {
   isNewArrival: boolean
 
 }
+
 
 /* export const inventory: InventoryProduct[] = [
   {
