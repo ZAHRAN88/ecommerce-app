@@ -34,7 +34,7 @@ export function ProductGrid({ products }: Props) {
           href={`/products/${product.slug}`}
           className="group relative h-80 text-sm"
         >
-          <div className="overflow-hidden rounded-lg border border-gray-200 bg-white shadow-md transition-transform duration-300 hover:shadow-lg hover:translate-y-2">
+          <div className="overflow-hidden rounded-lg border border-gray-200 bg-white shadow-md transition-transform duration-300 hover:shadow-lg hover:translate-y-2  dark:border-slate-900 dark:bg-slate-900 dark:text-white">
             <div className="aspect-h-1 aspect-w-1">
               <Image
                 src={urlForImage(product.images[0]).url()}
@@ -45,10 +45,10 @@ export function ProductGrid({ products }: Props) {
               />
             </div>
             <div className="p-4">
-              <h3 className="truncate text-lg font-bold text-gray-900">
+              <h3 className="truncate text-lg font-bold text-gray-900 dark:text-white">
                 {product.name}
               </h3>
-              <p className="mt-1 text-base font-semibold text-gray-700">{`Price: ${formatCurrencyString(
+              <p className="mt-1 text-base font-semibold text-gray-700 dark:text-gray-500">{`Price: ${formatCurrencyString(
                 { currency: product.currency, value: product.price }
               )}`}</p>
             </div>
