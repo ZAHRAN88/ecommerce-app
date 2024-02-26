@@ -34,7 +34,7 @@ export function ProductGrid({ products }: Props) {
           href={`/products/${product.slug}`}
           className="group relative h-80 text-sm"
         >
-          <div className="transform overflow-hidden rounded-lg border border-gray-200 bg-white shadow-md transition-transform duration-300 hover:shadow-lg">
+          <div className="overflow-hidden rounded-lg border border-gray-200 bg-white shadow-md transition-transform duration-300 hover:shadow-lg hover:translate-y-2">
             <div className="aspect-h-1 aspect-w-1">
               <Image
                 src={urlForImage(product.images[0]).url()}
