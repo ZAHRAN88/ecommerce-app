@@ -14,7 +14,7 @@ export function CartItemsEmpty() {
         <p className="mb-4 mt-2 text-sm text-muted-foreground">
           Add products to your cart.
         </p>
-        <Link href="/">
+        <Link href="/shop">
           <Button size="sm" className="relative">
             <Plus className="mr-2 h-4 w-4" />
             Add Products
