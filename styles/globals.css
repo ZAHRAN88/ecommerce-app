@@ -34,6 +34,14 @@
     --ring: 215 20.2% 65.1%;
 
     --radius: 0.5rem;
+
+    /* define the filter */
+    .dark\:darkFilter {
+      filter: grayscale(100%) brightness(70%);
+     
+    }
+
+    --filter: grayscale(0%) brightness(0.4);
   }
 
   .dark {
@@ -67,6 +75,7 @@
     --ring: 216 34% 17%;
 
     --radius: 0.5rem;
+    --darkfilter: grayscale(0%) brightness(0.6);
   }
 }
 
@@ -78,4 +87,31 @@
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
+}
+
+.banner-container {
+  @apply bg-background text-foreground;
+  position: relative;
+
+}
+.banner-headings{
+  @apply text-foreground;
+  
+  text-align: center;
+  width: 100%;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.05em;
+  text-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.5);
+}
+.banner-img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  
+  z-index: -1;
+  filter: brightness(0.4);
+  /* at dark  i want to reduce the filter */
+ 
 }
