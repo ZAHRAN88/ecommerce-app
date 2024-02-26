@@ -35,13 +35,7 @@
 
     --radius: 0.5rem;
 
-    /* define the filter */
-    .dark\:darkFilter {
-      filter: grayscale(100%) brightness(70%);
-     
-    }
-
-    --filter: grayscale(0%) brightness(0.4);
+  
   }
 
   .dark {

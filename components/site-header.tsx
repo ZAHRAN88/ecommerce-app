@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { usePathname, useRouter, useSearchParams } from "next/navigation"
-import { Edit, HomeIcon, ShoppingBag, ShoppingCart } from "lucide-react"
+import { Edit, Home, ShoppingBag, ShoppingCart } from "lucide-react"
 import { useShoppingCart } from "use-shopping-cart"
 
 import { Button } from "@/components/ui/button"
@@ -45,7 +45,7 @@ export function SiteHeader() {
         <div className="flex items-center space-x-1">
         <Link href="/">
             <Button size="sm" variant="ghost" title="Home">
-              <HomeIcon className="h-5 w-5" />
+              <Home className="h-5 w-5" />
               
               <span className="sr-only">Home</span>
             </Button>
