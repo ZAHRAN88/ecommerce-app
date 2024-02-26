@@ -64,7 +64,7 @@ products = products.filter(product => {
   return (
     <div>
       <hr />
-      <div className="flex items-center justify-between border-b border-gray-200 text-center dark:border-gray-800">
+      <div className="flex items-center justify-between border-b border-gray-200 text-center dark:border-gray-800 py-16">
         <div className="mx-auto max-w-6xl px-6">
           <h2 className="mb-4 text-2xl font-bold">Shop </h2>
           <p className="text-lg text-gray-700">

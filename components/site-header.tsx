@@ -24,13 +24,18 @@ export function SiteHeader() {
     event.preventDefault()
    const formData  =new FormData(event.currentTarget)
     const searchQuery  =formData.get("search") 
-    router.replace(`/?search=${searchQuery}`)
+    router.replace(`/shop?search=${searchQuery}`)
   }
 
   return (
-    <header className="sticky top-0 z-40 w-full border-b bg-background">
+    <header className="sticky top-0 z-40 w-full border-b bg-background ">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between space-x-4 px-6 sm:space-x-0">
         <MainNav />
+
+
+ {/* if the href contains ==="/shop" */}
+
+        { pathname === "/shop" && (
         <form className="hidden items-center lg:inline-flex">
           <Input
             id="search"
@@ -41,7 +46,8 @@ export function SiteHeader() {
             className="h-9 lg:w-[300px]"
             defaultValue={defaultSearchQuery}
           />
-        </form>
+        </form>)
+}
         <div className="flex items-center space-x-1">
         <Link href="/">
             <Button size="sm" variant="ghost" title="Home">
@@ -66,6 +72,8 @@ export function SiteHeader() {
           </Link>
           
           <ThemeToggle />
+          {/* if we are in dev mode */}
+          
           {process.env.NODE_ENV === "development" && (
 
             <Link href="/studio">
