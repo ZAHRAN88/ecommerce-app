@@ -15,25 +15,14 @@ const filters = [
     id: "category",
     name: "Category",
     options: [
-      { value: "bags", label: "Bags" },
-      { value: "belts", label: "Belts" },
-      { value: "gloves", label: "Gloves" },
-      { value: "scarves", label: "Scarves" },
-      { value: "wallets", label: "Wallets" },
+      { value: "men", label: "Men" },
+      { value: "women", label: "Women" },
+      { value: "kids", label: "Kids" },
+      { value: "accessories", label: "Accessories" },
+      
     ],
   },
-  {
-    id: "size",
-    name: "Size",
-    options: [
-      { value: "xs", label: "X-Small" },
-      { value: "s", label: "Small" },
-      { value: "m", label: "Medium" },
-      { value: "l", label: "Large" },
-      { value: "xl", label: "X-Large" },
-      { value: "one-size", label: "One Size" },
-    ],
-  },
+  
   {
     id: "color",
     name: "Color",
@@ -77,10 +66,10 @@ export function ProductFilters() {
                       id={`filter-${section.id}-${optidx}`}
                       checked={searchValues.some(([key, value]) => key === section.id && value === option.value)}
                       onClick={(event) => {
-                        const params = new URLSearchParams(searchParams)
+                        const params = new URLSearchParams(searchParams.toString());
                         const checked= event.currentTarget.dataset.state === "checked"
                         checked ? params.delete(section.id) : params.set(section.id, option.value)
-                        router.replace(`/?${params.toString()}`)
+                        router.replace(`/shop?${params.toString()}`)
                       }}
                     />
                     <label

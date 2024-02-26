@@ -10,15 +10,35 @@ interface Props {
 }
 
 export default async function Page({ searchParams }: Props) {
-  const session_id = searchParams.session_id?? ""
+ /*  const session_id = searchParams.session_id?? ""
   const checkoutSession =await stripe.checkout.sessions.retrieve(session_id)
- const customer_details= checkoutSession.customer_details
+ const customer_details= checkoutSession.customer_details */
   return (
-    <main className="grid min-h-full place-items-center px-6 py-24 sm:py-32 lg:px-8">
-      <div className="text-center">
+    <main className="flex flex-col min-h-full place-items-center px-6 py-24 sm:py-32 lg:px-8 ">
+      <div className="text-center flex flex-col">
         {/* Checkout session */}
-        <CheckoutSession customerDetails={customer_details} />
+       {/*  <CheckoutSession customerDetails={customer_details} /> */}
         <div className="mt-10 flex items-center justify-center gap-x-6">
+
+          
+       {/* Succes celebrations */}
+
+          <div className="flex items-center justify-center rounded-full bg-green-500 p-3">
+            <svg
+              className="h-12 w-12 text-white"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M5 13l4 4L19 7"
+              />
+            </svg>
+          </div>
           <Link
             href="/"
             className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"

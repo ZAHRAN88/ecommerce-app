@@ -36,7 +36,7 @@ export const product = defineType({
         }
         ,
         {
-            name:"sizes",
+            name:"size",
             title:"Sizes",
             type:"array",
             of: [{type:"string"}],
@@ -76,6 +76,19 @@ export const product = defineType({
             name:"price",
             title:"Price",
             type:"number",
+
+        }
+        ,
+        {
+            name:"isNewArrival",
+            title:"New Arrival",
+            type:"boolean",
+
+        },
+        {
+            name:"isBestSeller",
+            title:"Best Seller",
+            type:"boolean",
 
         }
         
