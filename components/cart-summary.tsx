@@ -1,8 +1,9 @@
 "use client"
 
 import { useState } from "react"
-import { Currency, Loader2 } from "lucide-react"
+import { Currency,  Loader2 } from "lucide-react"
 import { formatCurrencyString, useShoppingCart } from "use-shopping-cart"
+import  Link  from "next/link"
 
 import { Button } from "@/components/ui/button"
 
@@ -65,10 +66,14 @@ export function CartSummary() {
       </dl>
 
       <div className="mt-6">
-        <Button onClick={onCheckout} disabled={isDisabled} className="w-full">
+        <Link href="/success">
+
+{/* i want on click it be loading for 2 seconds then go t */}
+        <Button  disabled={isDisabled} className="w-full">
           {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
           {isLoading ? "Loading..." : "Checkout"}
         </Button>
+        </Link>
       </div>
     </section>
   )
