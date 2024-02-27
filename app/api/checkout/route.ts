@@ -9,14 +9,14 @@ import { stripe } from "@/lib/stripe"
 export async function POST(request: Request) {
   const cartDetails = await request.json()
   const line_items = validateCartItems( cartDetails)
-  const origin = request.headers.get("origin")
+  const origin = request.headers.get('origin')
   const session = await stripe.checkout.sessions.create({
     submit_type: "pay",
-    payment_method_types: ["card"],
+    payment_method_types: ['card'],
     line_items: line_items,
     mode: "payment",
     shipping_address_collection: {
-      allowed_countries: ["US", "EG", "PS"],
+      allowed_countries: ['US', 'EG', 'PS'],
     },
     shipping_options: [
       {
@@ -29,5 +29,5 @@ export async function POST(request: Request) {
     cancel_url: `${origin}/cart`,
   })
 
-  return NextResponse.json(session)
+return NextResponse.json(session, { status: 200 })
 }

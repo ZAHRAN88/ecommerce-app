@@ -55,18 +55,21 @@ export function CartItems() {
             <div className="relative justify-between pr-9 sm:flex sm:gap-x-6 sm:pr-0">
               <div>
                 <div className="flex justify-between">
-                  <h3 className="text-sm">
+                  
                     <Link href={`/products/${product.slug}`} className="font-medium">
-                      {product.name}
+                    <h3 className="text-xl font-bold"> {product.name}</h3>
                     </Link>
-                  </h3>
+               
                 </div>
-                <p className="mt-1 text-sm font-medium">{formatCurrencyString({value: product.price ,currency:product.currency})}</p>
-                <p className="mt-1 text-sm font-medium">
-                  Size: {/* @ts-ignore */}
-                  <strong>{getSizeName(product.product_data?.size)}</strong>
-                </p>
+                <div className=" inline">
+                {product._productData?.size && (
+                  <h2 className="mt-1 text-lg font-semibold">{` (${getSizeName(product._productData.size)})`}</h2>
+                )}
               </div>
+                <p className="mt-1 text-sm font-semibold">{formatCurrencyString({value: product.price ,currency:product.currency})}</p>
+                
+              </div>
+            
 
               <div className="mt-4 sm:mt-0 sm:pr-9">
                 <label htmlFor={`quantity-${productIdx}`} className="sr-only">

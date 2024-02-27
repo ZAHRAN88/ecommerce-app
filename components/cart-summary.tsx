@@ -18,16 +18,18 @@ export function CartSummary() {
   const isDisabled = isLoading || cartCount === 0
   const ShippingAmount = cartCount! > 0 ? 500 : 0
   const totalAmount = totalPrice! + ShippingAmount
+
   async function onCheckout() {
     setIsLoading(true)
     const response = await fetch('/api/checkout', {
       method: "POST",
       body: JSON.stringify(cartDetails),
-    }) 
-    const data = await response.json()
+    })
+    const data = await response.headers.get("Content-Type") === "application/json" ? await response.json() : await response.text()
+    console.log(data)
     const result = await redirectToCheckout(data.id)
     if (result?.error) {
-      console.error("a7aaaaaaaaa")
+      console.error(result)
     }
     setIsLoading(false)
   }

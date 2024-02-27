@@ -1,29 +1,29 @@
-import Link from "next/link"
+"use client"
 
-import { stripe } from "@/lib/stripe"
-import { CheckoutSession } from "@/components/checkout-session"
+import Link from "next/link";
+import { useEffect, useState } from "react";
+import Confetti from "react-confetti";
 
 interface Props {
   searchParams: {
-    session_id: string
-  }
+    session_id: string;
+  };
 }
 
-export default async function Page({ searchParams }: Props) {
- /*  const session_id = searchParams.session_id?? ""
-  const checkoutSession =await stripe.checkout.sessions.retrieve(session_id)
- const customer_details= checkoutSession.customer_details */
+export default function SuccessPage({ searchParams }: Props) {
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
   return (
-    <main className="flex min-h-full flex-col place-items-center px-6 py-24 sm:py-32 lg:px-8 ">
+    <main className="flex min-h-screen flex-col place-items-center px-6 py-24 sm:py-32 lg:px-8">
       <div className="flex flex-col text-center">
-        {/* Checkout session */}
-       {/*  <CheckoutSession customerDetails={customer_details} /> */}
+        {isMounted && <Confetti />}
         <div className="mt-10 flex items-center justify-center gap-x-6">
-
-          
-       {/* Succes celebrations */}
-
-          <div className="flex items-center justify-center rounded-full bg-green-500 p-3">
+          {/* Success celebrations */}
+          <div className="flex items-center justify-center rounded-full bg-green-500 p-3 animate-pulse">
             <svg
               className="h-12 w-12 text-white"
               fill="none"
@@ -31,25 +31,41 @@ export default async function Page({ searchParams }: Props) {
               stroke="currentColor"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M5 13l4 4L19 7"
-              />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
             </svg>
           </div>
-          <Link
-            href="/"
-            className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-          >
-            Go back home
+          <div className="flex flex-col">
+            
+            <h1 className="text-4xl mb-5 font-bold text-gray-900 dark:text-white">
+              Payment Successful
+            </h1>
+            <p className="text-lg font-semibold text-gray-600">
+              Your payment was successful. Thank you for shopping with us.
+            </p>
+
+          </div>
+        </div>
+        <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-x-4">
+          <Link href="/" passHref>
+            <p className="rounded-md bg-indigo-600 px-6 py-3 text-lg font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 transition duration-300 ease-in-out">
+              Go back home
+            </p>
           </Link>
-          <a href="#" className="text-sm font-semibold">
-            Contact support <span aria-hidden="true">&rarr;</span>
-          </a>
+          <Link href="/contact" passHref>
+            <p className="text-lg font-semibold text-indigo-600 flex items-center">
+              Contact support
+              <svg
+                className="ml-1 w-4 h-4 transform transition-transform duration-300 ease-in-out"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </p>
+          </Link>
         </div>
       </div>
     </main>
-  )
+  );
 }

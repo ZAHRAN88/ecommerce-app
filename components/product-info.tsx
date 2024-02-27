@@ -23,14 +23,14 @@ export function ProductInfo({ product }: Props) {
     const item={
       ...product,
       _productData:{
-        size:selectedSize
+        size:selectedSize as string
 
       }
 
     }
     isInCart ? incrementItem(product._id) : addItem(item)
     toast({
-      title:`${item.name} ${getSizeName(selectedSize)}`,
+      title:`${item.name}  (${getSizeName(selectedSize)})`,
       description:"Added to cart",
       action:(
         <Link href="/cart">
@@ -65,7 +65,7 @@ export function ProductInfo({ product }: Props) {
       </div>
 
       <div className="mt-4">
-        <p>
+      <p>
           Size: <strong>{getSizeName(selectedSize)}</strong>
         </p>
         {product.sizes.map((size) => (
