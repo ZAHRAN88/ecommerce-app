@@ -16,7 +16,7 @@ export function CartSummary() {
     redirectToCheckout,
   } = useShoppingCart()
   const [isLoading, setIsLoading] = useState(false)
-  const isDisabled = isLoading || cartCount === 0
+  const isDisabled =  cartCount === 0
   const ShippingAmount = cartCount! > 0 ? 500 : 0
   const totalAmount = totalPrice! + ShippingAmount
 
@@ -66,6 +66,11 @@ export function CartSummary() {
       </dl>
 
       <div className="mt-6">
+        { cartCount === 0 ? 
+        <Button disabled={isDisabled} className="w-full">
+          Cart is Empty
+        </Button>
+        :
         <Link href="/success">
 
 {/* i want on click it be loading for 2 seconds then go t */}
@@ -74,6 +79,7 @@ export function CartSummary() {
           {isLoading ? "Loading..." : "Checkout"}
         </Button>
         </Link>
+        }
       </div>
     </section>
   )
